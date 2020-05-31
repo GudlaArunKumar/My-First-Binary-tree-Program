@@ -1,80 +1,3 @@
-/*#include <iostream>
-#include <stdlib.h>
-#include "Queue.h"
-using namespace std;
-
-struct Node *root=NULL;
-
-void Treecreate()
-{
-    struct Node *p,*tmp;
-    int x;
-    struct Queue q;
-    create(&q,100);
-    root=new Node;
-    cout <<"Enter the data for root" << endl;
-    cin >> x;
-    root->data=x;
-    root->lchild=root->rchild=NULL;
-    enqueue(&q,root);
-    
-    while(!isEmpty(q))
-    {
-        p=dequeue(&q);
-        cout <<"Enter the data of left child of " <<p->data << ":";
-        cin >> x;
-        if(x!=-1)
-        {
-            tmp=new Node;
-            tmp->data=x;
-            tmp->lchild=tmp->rchild=NULL;
-            p->lchild=tmp;
-            enqueue(&q,tmp);
-        }
-        cout <<"Enter the data of right child of " <<p->data << ":";
-        cin >> x;
-        if(x!=-1)
-        {
-            tmp=new Node;
-            tmp->data=x;
-            tmp->lchild=tmp->rchild=NULL;
-            p->rchild=tmp;
-            enqueue(&q,tmp);
-        }
-    }
-}
-
-void preOrder(struct Node *p)
-{
-    if(p)
-    {
-        cout << p->data << " ";
-        preOrder(p->lchild);
-        preOrder(p->rchild);
-    }
-
-}
-
-void InOrder(struct Node *p)
-{
-    if(p)
-    {
-        InOrder(p->lchild);
-        cout << p->data << " ";
-        InOrder(p->rchild);
-    }
-
-}
-
-int main()
-{
-    Treecreate();
-    cout <<"Elements in the tree are:" << endl;
-    preOrder(root);
-    return 0;
-}*/
-
-
 #include <iostream>
 #include <stdlib.h>
 #include "Queue.h"
@@ -143,7 +66,7 @@ void Tree::preOrder(Node *p)
 
 }
 
-/*void Tree::InOrder(Node *p)
+void Tree::InOrder(Node *p)
 {
     if(p)
     {
@@ -152,7 +75,7 @@ void Tree::preOrder(Node *p)
         InOrder(p->rchild);
     }
 
-}*/
+}
 
 void Tree::IpreOrder(Node *t)
 {
@@ -231,11 +154,11 @@ int main()
 {
     Tree T;
     T.Treecreate();
-    /*cout <<"Elements in the tree are by PreOrder wise: " << endl;
+    cout <<"Elements in the tree are by PreOrder wise: " << endl;
     T.IpreOrder(T.root);
     cout << endl;
-    cout << "InOrder elements: " << endl;
-    T.IinOrder(T.root);*/
+    cout << "InOrder Traversal elements: " << endl;
+    T.InOrder(T.root);
     cout << "Counting All the Node of Tree: " << countAllNodes(T.root) << endl;
     cout << "Counting Leaf Node of Tree: " << countingLeafNode(T.root) << endl;
     return 0;
